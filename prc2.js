@@ -132,19 +132,19 @@
 //     },
 // };
 
-let user = { name : "john" };
-let admin = { name : "admin" };
+// let user = { name : "john" };
+// let admin = { name : "admin" };
 
-//hello_func 내 this 값은 런타임에 결정된다.
-function hello_func(){
-    console.log("hello " + this.name);
-}
+// //hello_func 내 this 값은 런타임에 결정된다.
+// function hello_func(){
+//     console.log("hello " + this.name);
+// }
 
-user.func = hello_func; //user.func을 수행할 때, this == user.name으로 결정됨.
-admin.func = hello_func; // 마찬가지임
+// user.func = hello_func; //user.func을 수행할 때, this == user.name으로 결정됨.
+// admin.func = hello_func; // 마찬가지임
 
-user.func();
-admin.func();
+// user.func();
+// admin.func();
 
-user["func"]();
-admin["func"]();
+// user["func"]();
+// admin["func"]();
