@@ -17,7 +17,7 @@
 // let result = factorial(num);
 // console.log(`the factorial of ${num} is ${result}`); 
 
-/* -------------------------------------------------------------------*/
+// /* -------------------------------------------------------------------*/
 
 // //1. call back func
 // function callback_func(){
@@ -57,7 +57,7 @@
 
 
 
-// call by value
+// //call by value
 // let a = 1;
 // let add = function(b) { b = b + 1; };
 // add(a);
@@ -69,17 +69,17 @@
 // _add(_a);
 // console.log(_a.v);
 
-//연습문제
-// function MAX(x, y){
-//     if (x > y)
-//         return x;
-//     if (x < y)
-//         return y;
-// }
+// //연습문제
+// // function MAX(x, y){
+// //     if (x > y)
+// //         return x;
+// //     if (x < y)
+// //         return y;
+// // }
 
-// console.log(MAX(0, 3));
-// console.log(MAX(-1, 5));
-// console.log(MAX(100, 7));
+// // console.log(MAX(0, 3));
+// // console.log(MAX(-1, 5));
+// // console.log(MAX(100, 7));
 
 // //함수 선언식
 // function add_1(x, y){
@@ -103,9 +103,7 @@
 // console.log(Object.getOwnPropertyDescriptors(add_4));
 
 
-//함수 저장 배열의 요소 혹은 객체의 속성에 함수를 정의하여 저장이 가능하다.
-
-// // 
+// //함수 저장 배열의 요소 혹은 객체의 속성에 함수를 정의하여 저장이 가능하다.
 
 // function hello_func(){
 //     console.log("hello");

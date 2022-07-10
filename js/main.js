@@ -9,14 +9,14 @@
 
 // //let admin = { ...user };
 // let admin = JSON.parse(JSON.stringify(user)); //2. Json파싱을 활용한 깊복
-// // for (let key in user)
-// // {
-// //     admin[key] = user[key];
-// // } // 1, 얕복
+// for (let key in user)
+// {
+//     admin[key] = user[key];
+// } // 1, 얕복
 
-// //let admin = Object.assign({}, user); // 2. 얕복
+// let admin = Object.assign({}, user); // 2. 얕복
 
-// //let admin = { ...user }; // 3.얕복
+// let admin = { ...user }; // 3.얕복
 
 
 // admin.sizes.height = admin.sizes.height + 1;

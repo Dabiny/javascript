@@ -1,23 +1,23 @@
-const UNITL_NUM = 10;
-let sum = 0;
+// const UNITL_NUM = 10;
+// let sum = 0;
 
-for (let i = 0; i <= UNITL_NUM; ++i)
-{
-    if (i % 2 == 0){
-        sum += i;
-        console.log(sum);
-    }
-}
+// for (let i = 0; i <= UNITL_NUM; ++i)
+// {
+//     if (i % 2 == 0){
+//         sum += i;
+//         console.log(sum);
+//     }
+// }
 
-let num = 1;
+// let num = 1;
 
-for (let i  = 2; i <= 9; i++)
-    for (let j = 1; j < 10; j++)
-    {
-        num = i * j;
-       // console.log(i + "*" + j + "=" + num);        
-       console.log(`${i} x ${j} = ${i * j}`);
-    }
+// for (let i  = 2; i <= 9; i++)
+//     for (let j = 1; j < 10; j++)
+//     {
+//         num = i * j;
+//        // console.log(i + "*" + j + "=" + num);        
+//        console.log(`${i} x ${j} = ${i * j}`);
+//     }
 
 // /* 1. 함수 선언식 */
 // function add(x, y){
@@ -34,7 +34,7 @@ for (let i  = 2; i <= 9; i++)
 
 // // 함수 호출
 
-/* 1. default value */
+// /* 1. default value */
 // function print_add(x, y = 10)
 // {
 //     console.log(x + y);
