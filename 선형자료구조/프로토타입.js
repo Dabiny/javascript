@@ -10,7 +10,7 @@
 //     this.age = age;
 // }
 
-// //prototype을 이용한 Person 메서드 정의
+// //prototype을 이용한 Person 메서드 정의   
 // Person.prototype.isAdult = function(){
 //     return this.age > 18;
 // };
