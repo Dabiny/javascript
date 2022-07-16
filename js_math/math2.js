@@ -53,7 +53,8 @@
 // combination(input);
 // console.log(count3);
 
-// // 조합 예제 2.
+// 조합 예제 2.
+// let input = [1, 2, 3, 4]
 // let output = [];
 // let count4 = 0;
 // function combination2(arr, data, s, idx, r){ //idx -> 현재 인덱스 정보, 
@@ -62,7 +63,7 @@
 //         console.log(data);
 //         return;
 //     }
-//     for (let i = idx; arr.length - i >= r - s; i++){
+//     for (let i = idx; arr.length - i >= r; i++){
 //         // 어레이 길이가 i보다 크거나 같고 r-s만큼만 돌겠다. 
 //         data[s] = arr[i];
 //         combination2(arr, data, s + 1, i + 1, r);
@@ -71,3 +72,4 @@
 // combination2(input, output, 0, 0, 2);
 // console.log(count4);
 
+//스타팅 포인트 부터 돌면서 ; (배열 길이(4) - 스타팅포인트)를 뺀 값이 (2개만 뽑는 조건과 재귀스타트횟수를 뺀 값)보다 크거나 같아질때까지만 돈다.
