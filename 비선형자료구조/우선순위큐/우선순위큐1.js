@@ -47,6 +47,24 @@ PriorityQueue.prototype.dequeue = function () {
 }
 
 
+// front() : 가장 첫 데이터 반환
+PriorityQueue.prototype.front = function () {
+    return this.array.length == 0 ? undefined : this.array[0].data;
+}
+
+// size() : 큐 내 데이터 개수 확인
+PriorityQueue.prototype.size = function () {
+    return this.array.length;
+}
+
+// clear() : 큐 초기화
+PriorityQueue.prototype.clear = function () {
+    this.array = [];
+}
+
+
+
+
 /* code */
 let pq = new PriorityQueue();
 
@@ -59,3 +77,6 @@ console.log(pq);
 
 //console.log(pq.dequeue());
 
+console.log(pq.front());
+console.log(pq.size());
+console.log(pq.getBuffer()); //배열형태로 나옴
