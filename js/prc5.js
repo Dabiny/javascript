@@ -91,6 +91,7 @@
 // console.log(use_for_loop);
 
 // //use map
+
 // // map 원리 : 1. 유즈맵에 할당문 뒤에 있는 map(function (넘4요소값))이 함수 안에 들어와 곱하기를 연산한다.
 // //  2. 그리고 나서 연산뒤 리턴하여 유즈맵에 할당하게 된다. 새로운 변수선언없이 바로바로 대입가능
 // let use_map = nums4.map(function (item) {
