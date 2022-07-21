@@ -102,24 +102,14 @@ function solution(arr) {
 //let str = "aabaabaa";
 //console.log(solution(1,str));
 
-function solution(ini, trans) {
-    let arr = ""
-    for (let i = 0; i < ini.length; i++){
-        if (ini[i] == trans[i]){
-            continue;
-        }
-        if (ini[i] != trans[i]){
-            if (ini[i] === "x"){
-                ini[i] = "y";
-                
-            }
-        }
-        console.log(ini);
-    }
-}
+
 let ini = "xyyxyz";
 let tran = "yyxxzy";
-console.log(solution(ini, tran))
+
+let temp = ini[1];
+ini[1] = ini[0];
+ini[0] = temp;
+console.log(ini);
 
 
 // function permutation(arr){
@@ -176,3 +166,27 @@ console.log(solution(ini, tran))
 // }
 // let str = "nn";
 // console.log(solution(str));
+
+function solution(ini, trans) {
+    var answer = '';
+    for (let i = 0; i < ini.length; i++){
+        // 1. xy -> yx
+        if (ini[i] == "x" && ini[i + 1] == "y" && ini[i] != trans[i]){
+            let temp = ini[i + 1];
+            ini[i + 1] = ini[i];
+            ini[i] = temp;
+        }
+        // 2. yz -> zy
+        if (ini[i] == "y" && ini[i + 1] == "z" && ini[i] != trans[i]){
+            let temp = ini[i + 1];
+            ini[i + 1] = ini[i];
+            ini[i] = temp;
+        }
+    }
+    for (let i = 0; i < ini.length; i++){
+        if (ini[i] != trans[i]){
+            return "NO";
+        }
+    }
+    return "YES";
+}
