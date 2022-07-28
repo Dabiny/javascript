@@ -14,7 +14,6 @@ var message = '';
 // 주어진 조건이 true일 때
 if (done)
     message = '완료';
-
 // if문은 단축 평가로 대체가능하다.
 message = done && '완료';
 console.log(message);
@@ -27,7 +26,6 @@ var message = '';
 // 주어진 조건이 false일 때
 if (!done)
     message = '미완료';
-
 // 단축평가
 message = done || '미완료';
 console.log(message);
@@ -57,3 +55,18 @@ console.log(message);
 var elem2 = null;
 var value2 = elem2 && elem2.value;
 console.log(value2); //null
+
+
+// 예제 09-25
+function getStringLength(str){
+    str = str || '';
+    return str.length;
+}
+console.log(getStringLength());
+console.log(getStringLength('hi'));
+
+function getStringLength2(str = ''){
+    return str.length;
+}
+console.log(getStringLength2());
+console.log(getStringLength2('hello'));
