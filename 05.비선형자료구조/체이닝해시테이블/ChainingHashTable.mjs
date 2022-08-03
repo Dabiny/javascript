@@ -50,14 +50,86 @@ ChainingHashTable.prototype.put = function (key, value) {
     //이 테이블에있는 링크드리스트에 새로운 엘리먼트를 생성해서 append해라.
     this.length++;
     return true;
-}
+};
 
+// getBuffer(): 데이터 셋 반환
+ChainingHashTable.prototype.getBuffer = function () {
+    let array = []; // 반환할 배열
+    for (let i = 0; i < this.table.length; i++){
+        if (this.table[i]){ //요소가 있다면
+            let current = this.table[i].head;
+            // current를 head가 가리키는 요소를 가리키게 해라.
+            do { //무조건 값이 있다고 판단해서 두와일을 썼다.
+                array.push(current.data); //배열에 푸시하고
+                current = current.next;  // 넥스트를 가리키게 해라.
+            } while (current); // current가 null이 아닐때까지
+        }
+    }
+    return array; //포문을 통해서 넣은 배열을 반환.
+};
+
+// print(): 데이터 셋 출력
+ChainingHashTable.prototype.print = function () {
+    for (let i = 0; i < this.table.length; i++){
+        if (this.table[i]){ // 테이블[i]에 링크드리스트요소가 있다면
+            let current = this.table[i].head;
+            process.stdout.write(`#${i}`); // key값 출력 (이어쓰게 하려고 write 썼음)
+            do {
+                process.stdout.write(` -> ${current.data.key}: ${current.data.value}`);
+                current = current.next;
+            } while (current);
+            console.log("");
+        }
+    }
+};
+
+// get(): 데이터 조회
+ChainingHashTable.prototype.get = function (key) {
+    let index = this.hashCode(key);
+    if (this.table[index] !== undefined && !this.table[index].isEmpty()){
+        let current = this.table[index].head;
+        do {
+            if (current.data.key === key){
+                return current.data.value;
+            }
+            current = current.next;
+        } while (current);
+    }
+    return undefined;
+};
+
+// remove(): 데이터 삭제
+ChainingHashTable.prototype.remove = function (key) {
+    let index = this.hashCode(key);
+    let element = undefined;
+    if (this.table[index] !== undefined){
+        let current = this.table[index].head;
+        do {
+            if (key === current.data.key){
+                element = current.data;
+                this.table[index].remove(current.data); //LinkedList의 remove()
+                if (this.table[index].isEmpty()){
+                    delete this.table[index]; // 아예 LinkedList를 해제시키기.
+                }
+            }
+            current = current.next;
+        } while (current);
+    }
+    this.length--;
+    return element;
+};
 
 let cht = new ChainingHashTable();
 
-cht.put("Ana", 172);
-cht.put("Donnie", 183);
-cht.put("Sue", 163);
-cht.put("Jamie", 168);
+cht.put("Ana", 172); 
+cht.put("Donnie", 183); // 충돌
+cht.put("Sue", 163); 
+cht.put("Jamie", 168); // 충돌
 cht.put("Paul", 190);
 console.log(cht);
+
+console.log(cht.getBuffer());
+cht.print();
+
+console.log(cht.get("Ana"));
+console.log(cht.get("sam"));

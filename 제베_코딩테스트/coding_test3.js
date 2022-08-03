@@ -85,45 +85,69 @@
 //     return count;
 // }
 // console.log(solution(['apple','banana','kakao', 'apache'], "ap"));
-function Stack(array){
-    this.array = array ? array : [];
-}
-Stack.prototype.push = function (element) {
-    return this.array.push(element);
-};
-Stack.prototype.pop = function () {
-    return this.array.pop();
-};
-Stack.prototype.peek = function () {
-    return this.array[this.array.length - 1];
-};
-Stack.prototype.size = function () {
-    return this.array.length;
-};
-Stack.prototype.isEmpty = function () {
-    return this.array.length == 0;
-};
+// function Stack(array){
+//     this.array = array ? array : [];
+// }
+// Stack.prototype.push = function (element) {
+//     return this.array.push(element);
+// };
+// Stack.prototype.pop = function () {
+//     return this.array.pop();
+// };
+// Stack.prototype.peek = function () {
+//     return this.array[this.array.length - 1];
+// };
+// Stack.prototype.size = function () {
+//     return this.array.length;
+// };
+// Stack.prototype.isEmpty = function () {
+//     return this.array.length == 0;
+// };
 
-function solution(stock) {
-    let stockArr = [];
-    for (let i = 0; i < stock.length; i++){
-        stockArr.push(stock[i]);
-    }
-    let sortArr = stock.sort(function (a, b) { return a - b; });
+// function solution(stock) {
+//     let stockArr = [];
+//     for (let i = 0; i < stock.length; i++){
+//         stockArr.push(stock[i]);
+//     }
+//     let sortArr = stock.sort(function (a, b) { return a - b; });
 
-    let stk = new Stack();
-    let index = 0;
-    for (let i = 0; i < sortArr.length; i++){
-        if (stk.isEmpty()){
-            stk.push(stockArr[index++]);
+//     let stk = new Stack();
+//     let index = 0;
+//     for (let i = 0; i < sortArr.length; i++){
+//         if (stk.isEmpty()){
+//             stk.push(stock[index++]);
+//         }
+//         if (!stk.isEmpty() && stk.peek() == sortArr[i]){
+//             stk.pop();
+//         }
+//         if (!stk.isEmpty() && stk.peek() != sortArr[i]){
+//             stk.push(sortArr[i]);
+//         }
+//     }
+//     if (stk.isEmpty()){
+//         return 1;
+//     }
+//     return 0;
+// }
+// console.log(solution([1, 2, 5, 4, 3]));
+
+
+function solution(param0) {
+    let people = 1;
+    let queue = [];
+    for (let i = 0; i < param0.length; i++){
+        if (param0[i].length == 1){
+            queue.push(param0[i]);
         }
-        if (!stk.isEmpty() && stk.peek() == sortArr[i]){
-            stk.pop();
+        if (param0[i].length != 1) {
+            for (let j = 0; j < param0[i].length; j++){
+                if (param0[i][j] == queue[0]){
+                    queue.shift();
+                }
+            }
         }
     }
-    if (stk.isEmpty()){
-        return 1;
-    }
-    return stk;
+    people += queue.length;
+    return people;
 }
-console.log(solution([1, 2, 5, 4, 3]));
+console.log(solution(['a', 'b', 'ab', 'd']));
