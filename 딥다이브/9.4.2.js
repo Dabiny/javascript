@@ -1,6 +1,6 @@
 // 옵셔널 체이닝 연산자 ?.
 
-// 예제 09-26.
+// //예제 09-26.
 // let elem = null;
 // // elem이 null / undeidfined이면 undefined를 반환하고, 그렇지 않으면 우항의 프로퍼티를 참조.
 // let n = elem?.value;

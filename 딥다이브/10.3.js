@@ -1,10 +1,10 @@
 // 프로퍼티
 
 // 예제 10-03
-// var person = {
-//     name: 'lee',
-//     age: 20
-// };
+var person = {
+    name: 'lee',
+    age: 20
+};
 
 // 예제 10-04
 // var person = {
@@ -32,4 +32,26 @@ obj[key] = 'world';
 console.log(obj);
 
 
+// 예제 10-07
+var foo = {
+    '':''
+};
 
+// 예제 10-08
+var foo = {
+    0: 1,
+    1: 2,
+    2: 3
+};
+
+// 예제 10-09
+var foo = {
+    var: '',
+    function: ''
+};
+
+// 예제 10-10
+var foo = {
+    name: 'Lee',
+    name: 'Kim'
+};
