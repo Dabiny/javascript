@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class="fruits apple">Apple
+            <ul>
+                <li>Apple2</li>
+            </ul>
+        </li> 
+        <li class="fruits banana">Banana</li>
+        <li class="fruits orange">Orange</li>
+    </ul>
+    <script>
+        // class 값이 'fruits'인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.
+        const $elems = document.getElementsByClassName('fruits');
+        // 취득한 모든 요소의 CSS Color 프로퍼티 값을 변경한다.
+        [...$elems].forEach(elem => { elem.style.color = 'red'; });
+
+        const $apples = document.getElementsByClassName('fruits apple');
+        [...$apples].forEach(elem => { elem.style.color = 'blue'; });
+    </script>
+</body>
+</html>
