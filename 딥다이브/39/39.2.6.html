@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="fruits">
+        <li class="red">Apple</li> 
+        <li class="red">Banana</li>
+        <li class="red">Orange</li>
+    </ul>
+    <script>
+        const $elems = document.getElementsByClassName('red');
+        // 이 시점에는 콜렉션객체에 3개의 요소가 담겨져 있다. 
+        console.log($elems); // HTMLCollection(3) [li.red, li.red, li.red]
+        [...$elems].forEach(elem => { elem.style.color = 'red'; });
+
+        // HTMLCollection 객체의 모든 요소의 class값을 'blue'로 변경한다.
+        for (let i = 0; i < $elems.length; i++){
+            $elems[i].className = 'blue';
+        }
+
+        // HTMLCollection 객체의 요소가 3개에서 1개로 변경되었다. 
+        console.log($elems); // HTMLCollection(1) [li.red]
+        [...$elems].forEach(elem => { elem.style.color = 'blue'; });
+    </script>
+</body>
+</html> -->
+
+<!-- 예제 39-19 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="fruits">
+        <li class="red">Apple</li> 
+        <li class="red">Banana</li>
+        <li class="red">Orange</li>
+    </ul>
+    <script>
+        const $elems = document.getElementsByClassName('red');
+        // 이 시점에는 콜렉션객체에 3개의 요소가 담겨져 있다. 
+        console.log($elems); // HTMLCollection(3) [li.red, li.red, li.red]
+        [...$elems].forEach(elem => { elem.style.color = 'red'; });
+
+        // HTMLCollection 객체의 모든 요소의 class값을 'blue'로 변경한다.
+        for (let i = $elems.length - 1; i >= 0; i--) {
+            $elems[i].className = 'blue';
+        }
+         
+        // while 문을 사용하여 노드 객체가 남아있지 않을 때까지 무한 반복한다.
+        let i = 0;
+        while ($elems.length > i){
+            $elems[i].className = 'blue';
+        }
+
+        // HTMLCollection 객체의 요소가 3개에서 0개로 변경되었다.
+        console.log($elems); // HTMLCollection(0) null
+
+        [...$elems].forEach(elem => { elem.style.color = 'blue'; });
+    </script>
+</body>
+</html> -->
+
+<!-- 예제 39-22 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="fruits">
+        <li class="red">Apple</li> 
+        <li class="red">Banana</li>
+        <li class="red">Orange</li>
+    </ul>
+    <script>
+        // querySelectorAll은 DOM 컬렉션 객체인 NodeList를 반환한다.
+        const $elems = document.querySelectorAll('.red');
+
+        // NodeList 객체는 Nodelist.prototype.forEach 메서드를 상속받아 사용할 수 있다. 
+        $elems.forEach(elem => elem.class.name = 'blue');
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li> 
+        <li>Banana</li>
+    </ul>
+    <script>
+        const $fruits = document.getElementById('fruits');
+        
+        // childNodes 프로퍼티는 NodeList객체를 live로 반환한다.
+        const { childNodes } = $fruits;
+        console.log(childNodes instanceof NodeList); // true
+
+        // $fruits요소의 자식노드는 공백 텍스트 노드를 포함해 모두 5개이다. 
+        console.log(childNodes); // NodeList(5) [text, li, text, li, text]
+        for (let i = 0; i < childNodes.length; i++) {
+
+            // removeChild메서드는 $fruits 요소의 자식 노드를 DOM에서 삭제한다. 
+            // removeChild 메서드가 호출될 때마다 NodeList객체인 childNodes가 실시간으로 변경된다.
+            // 따라서 첫번째, 세번째, 다섯번째 요소만 삭제된다. 
+            $fruits.removeChild(childNodes[i]);
+        }
+
+        // 예상과 다르게 $fruits 요소의 모든 자식 노드가 삭제되지 않는다. 
+        consol.log(childNodes); // NodeList(2) [li, li]
+    </script>
+</body>
+</html> -->
+
+<!-- 예제 39-24 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li> 
+        <li>Banana</li>
+
+    </ul>
+    <script>
+        const $fruits = document.getElementById('fruits');
+        // childNode 프로퍼티는 NodeList 객체를 반환한다.
+        const { childNodes } = $fruits;
+        
+        // 스프레드 문법을 사용하여 NodeList 객체를 배열로 변환한다. 
+        [...childNodes].forEach(childNode =>  {
+            $fruits.removeChild(childNode);
+        });
+        
+        // $fruits 요소의 모든 자식 노드가 모두 삭제되었다.
+        console.log(childNodes); // NodeList []
+    </script>
+</body>
+</html>

@@ -1,25 +1,13 @@
-function Obj (_name, _comp) {
-    this.name = _name;
-    this.complain = _comp;
-};
+function solution(A) {
+    const money = [50000, 10000, 5000, 1000, 500, 100, 50, 10, 5, 1];
 
-function solution(id_list, report, k) {
-    let Arr = [];
-    for (let i = 0; i < id_list.lenth; i++){
-        Arr.push(new Obj(id_list[i], 0));
+    let count;
+    for (let i = 0; A !== 0; i++){
+        // 만약 A / money[i]가 1보다크면 나누고 아니면 0
+        count = A / money[i] > 1 ? Math.floor(A / money[i]) : 0;
     }
 
-    return Arr;
+    return count;
 }
 
-
-
-console.log(solution(["muzi", "frodo", "apeech", "neo"],
- ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"], 2));
-
-console.log(solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3));
-
-
-let arr = [];
-arr.push(new Obj("muzi", 0));
-console.log(arr);
+console.log(solution(100000));
