@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+        <li class="banana">Banana</li>
+        <li class="orange">Orange</li>
+    </ul>
+    <script>
+        const $fruits = document.getElementById('friuts');
+
+        // #fruits 요소의 모든 자식 노드를 탐색
+        console.log($fruits.childNodes);
+        // NodeList(7) [test, li.apple, text, li.banana, text, li.orange, text]
+
+        // #fruits 요소의 모든 자식 노드를 탐색
+        console.log($fruits.children);
+        // HTMLCollection(3) [li.apple, li.banana, li.orange]
+
+        // #fruits 요소의 첫번째 자식노드 탐색
+        console.log($fruits.firstChild);
+        // #text
+
+        console.log($fruits.lastChild); // #text
+
+        console.log($fruits.firstElementChild); // li.apple
+        console.log($fruits.lastElementChild()); // li.orange
+    </script>
+</body>
+</html>

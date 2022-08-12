@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <ul id="fruits">
+    </ul>
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        console.log($fruits.hasChildNodes()) // true
+
+        console.log(!!$fruits.children.length); //0 -> false
+        console.log(!!$fruits.childElementCount); // 0 -> false
+    </script>
+</body>
+</html>
