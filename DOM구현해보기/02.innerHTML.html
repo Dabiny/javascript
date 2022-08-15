@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML</title>
+</head>
+<body>
+    <div id="foo">
+        <button>Hello</button>
+    </div>
+    <script>
+        $buttonDiv = document.getElementById('foo');
+        $buttonDiv.addEventListener('click', function() {
+            $buttonDiv.innerHTML = '<button>헬로월드</button>';
+            $buttonDiv.innerHTML += '<button>새로운 버튼</button>';
+        })
+    </script>
+</body>
+</html>

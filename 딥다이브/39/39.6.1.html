@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello <span>world!</span></div>
+</body>
+<script>
+    document.getElementById('foo').innerHTML = 'Hi<span>there!</span>';
+</script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello</div>
+</body>
+<script>
+    //error!
+    document.getElementById('foo').innerHTML ='<script>alert(document.cookie)</script>';
+</script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello</div>
+</body>
+<script>
+    DOMPurify.sanitize('<img src="x" onerror="alert(document.cookie)">');
+    // 정상적으로 작동이된다.
+    document.getElementById('foo').innerHTML = `<img src="x" onerror="alert(document.cookie)">`;
+</script>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+        <li class="orange">Orange</li>
+    </ul>
+</body>
+<script>
+    const $fruits = document.getElementById('fruits');
+
+    // 노드 추가
+    $fruits.innerHTML += '<li class="banana">Banana</li>';
+
+</script>
+</html>
