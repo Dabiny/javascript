@@ -15,9 +15,19 @@
         const { nextSibling } = firstChild;
         console.log(nextSibling); // li.apple
 
-        
+        const { previousSibling } = nextSibling;
+        console.log(previousSibling); // #next
 
+        const { firstElementChild } = $fruits;
+        console.log(firstElementChild); // li.apple
 
+        // #fruits 요소의 첫 번째 자식 요소 노드(li.apple)의 다음 형제 노드를 탐색한다.
+        const { nextElementSibling } = firstElementChild;
+        console.log(nextElementSibling); // li.banana
+
+        // li.banana 요소의 이전 형제 요소 노드를 탐색한다.
+        const { privousElementSibling } = nextElementSibling;
+        console.log(privousElementSibling); // li.apple
     </script>
 </body>
 </html>

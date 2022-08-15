@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello</div>
+    <script>
+        //문서의 정보를 취득한다.
+        console.log(document.nodeType); //9
+        console.log(document.nodeName); //#document
+
+        // 요소 노드의 노드 정보를 취득한다.
+        const $foo = document.getElementById('foo');
+        console.log($foo.nodeType); // 1
+        console.log($foo.nodeName); // DIV
+
+        // 텍스트 노드의 노드 정보를 취득한다.
+        const $textNode = $foo.firstChild;
+        console.log($textNode.nodeType); //3
+        console.log($textNode.nodeName); // #text
+    </script>
+</body>
+</html>

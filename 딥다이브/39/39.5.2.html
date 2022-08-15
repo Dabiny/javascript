@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello <span>world!</span></div>
+    <script>
+        // #foo 요소 노드의 텍스트를 모두 취득한다. 이때 HTML마크업은 무시된다. 
+        console.log(document.getElementById('foo').textContent);
+        // Hello world!
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello <span>world!</span></div>
+    <script>
+        // foo 요소 노드의 자식 노드의 텍스트값 취득
+        console.log(document.getElementById('foo').firstChild.nodeValue);
+
+        // span요소 노드의 자식노드인 텍스트 노드의 값을 취득
+        console.log(document.getElementById('foo').lastChild.firstChild.nodeValue);
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello <span>world!</span></div>
+    <script>
+        document.getElementById('foo').textContent = 'Hi <span>there!</span>';
+
+    </script>
+</body>
+</html>
