@@ -8,29 +8,43 @@ OX 문제는 맞거나 틀린 두 경우의 답을 가지는 문제를 말한다
 총 점수는 1+1+2+3+1+2=10 점이다
 */
 
-function solution (number, arr){
-    let score = 0;
-    let num = arr[0];
-    let bonus = 0;
-    for (let i = 1; i < number; i++){
-        if (arr[i] == 0 && num == 1){
-            bonus = 0;
-            num = arr[i];
+// function solution (number, arr){
+//     let score = 0;
+//     let num = arr[0];
+//     let bonus = 0;
+//     for (let i = 1; i < number; i++){
+//         if (arr[i] == 0 && num == 1){
+//             bonus = 0;
+//             num = arr[i];
+//         }
+//         if (arr[i] == 1 && num == 0) {
+//             score++;
+//             num = arr[i];
+//         }
+//         if (arr[i] == 1 && num == 1){
+//             bonus++;
+//             score+= bonus;
+//             num = arr[i];
+//         }
+//         if (arr[i] == 0 && num == 0){
+//             bonus = 0;
+//             num = arr[i];
+//         }
+//     }
+//     return score;
+// }
+// console.log(solution(10, [1, 0, 1, 1, 1, 0, 0, 1, 1, 0]));
+
+function solution(n, arr) {
+    let answer = 0;
+    let cnt = 0;
+    for (let iter of arr) {
+        if (iter === 1) {
+            cnt++;
+            answer += cnt;
         }
-        if (arr[i] == 1 && num == 0) {
-            score++;
-            num = arr[i];
-        }
-        if (arr[i] == 1 && num == 1){
-            bonus++;
-            score+= bonus;
-            num = arr[i];
-        }
-        if (arr[i] == 0 && num == 0){
-            bonus = 0;
-            num = arr[i];
-        }
+        else cnt = 0;
     }
-    return score;
+    return answer;
 }
 console.log(solution(10, [1, 0, 1, 1, 1, 0, 0, 1, 1, 0]));

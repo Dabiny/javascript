@@ -1,5 +1,5 @@
 function solution(s){  
-    let length = 0;
+    let length = Number.MAX_SAFE_INTEGER;
     let answer = "";
     for (let i of s){
         if (i.length > length){

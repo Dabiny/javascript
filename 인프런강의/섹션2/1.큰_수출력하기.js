@@ -3,9 +3,13 @@
 */
 
 function solution(n, arr){
-    let answer = arr.filter((v, i) => v >= n);
+    let answer= [];
+    answer.push(arr[0]);
+    for (let i = 1; i < arr.length; i+=2) {
+        if (arr[i - 1] < arr[i]) answer.push(arr[i]);
+    }
     return answer; 
 }
 
-console.log(solution(6, [7, 3, 9, 5, 6, 12]));
+console.log(solution(6, [1, 2, 3, 4, 5, 6, 7]));
 
