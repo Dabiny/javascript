@@ -1,4 +1,4 @@
-/* 최소힙 (MinHeap) */
+/* 최대힙 (MaxHeap) */
 
 // Heap(): 배열에 요소를 저장하기 위한 생성자.
 function Heap() {
@@ -58,10 +58,10 @@ Heap.prototype.insert = function (elem) {
     this.bubbleUp();
 };
 
-// bubbleUp(): 추가된 노드 위치 정렬 아래에서 위로
+// bubbleUp(): 추가된 노드 위치 정렬 아래에서 위로 (수정부분 minheap과 다른부분)
 Heap.prototype.bubbleUp = function () {
     let index = this.size() - 1; //items의 길이 끝부분
-    while (this.parent(index) && this.parent(index) > this.items[index]) {
+    while (this.parent(index) && this.parent(index) <  this.items[index]) {
         // 부모가 있고 && 부모(끝부분의)가 이 배열끝부분의 요소보다 클때까지 돌기
         this.swap(this.parentIndex(index), index); // 계속 스왑해주기 (올려치기작업)
         index = this.parentIndex(index); // 바뀐 인덱스는 = 올려치기된 부모인덱스로 업데이트 
@@ -78,14 +78,14 @@ Heap.prototype.extract = function () {
     return item; //버블다운에 의한 바뀐 루트 노드를 반환시켜준다.
 };
 
-// bubbleDown(): 대체된 root노드 위치 정렬
+// bubbleDown(): 대체된 root노드 위치 정렬 (수정부분 minheap과 다른 부분이다.)
 Heap.prototype.bubbleDown = function() {
     let index = 0;
     while (this.leftChild(index) && 
-            (this.leftChild(index) < this.items[index] || this.rightChild(index) < this.items[index])) {
+            (this.leftChild(index) > this.items[index] || this.rightChild(index) > this.items[index])) {
         
         let childIndex = this.leftChildIndex(index);
-        if (this.rightChild(index) && this.rightChild(index) < this.items[childIndex]) {
+        if (this.rightChild(index) && this.rightChild(index) > this.items[childIndex]) {
             childIndex = this.rightChildIndex(index);
         }
 
@@ -94,18 +94,18 @@ Heap.prototype.bubbleDown = function() {
     }
 };
 
-let minHeap = new Heap();
+let maxheap = new Heap();
 
-minHeap.insert(90); //bubbleup이 처음엔 호출되지만 돌지 않음
-minHeap.insert(15); //bubbleup이 호출되고 시작
-minHeap.insert(10); 
-minHeap.insert(7); 
-minHeap.insert(12); 
-minHeap.insert(2); 
-minHeap.insert(8); 
-minHeap.insert(3); 
+maxheap.insert(90); //bubbleup이 처음엔 호출되지만 돌지 않음
+maxheap.insert(15); //bubbleup이 호출되고 시작
+maxheap.insert(10); 
+maxheap.insert(7); 
+maxheap.insert(12); 
+maxheap.insert(2); 
+maxheap.insert(8); 
+maxheap.insert(3); 
 
-console.log(minHeap);
+console.log(maxheap);
 
-minHeap.insert(1); 
-console.log(minHeap);
+maxheap.insert(1); 
+console.log(maxheap);
