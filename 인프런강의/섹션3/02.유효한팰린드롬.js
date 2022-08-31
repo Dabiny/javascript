@@ -12,3 +12,5 @@ function solution(s) {
 
 console.log(solution("found7, time: study; Yduts; emit, 7Dnuof"));
 // / [\ {\ }\ [\ ]\ /? .,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"] /gi;
+
+// /[^a-z]/g // 알파벳이 아닌것들을 골라서 없애기 
