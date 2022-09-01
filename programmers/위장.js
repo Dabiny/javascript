@@ -14,7 +14,7 @@
 //         answer *= (value + 1); // (경우의수 + 최소하나이상은 입으니까 1)
 //     }
 //     return answer - 1; // 아예안입는 경우도 빼기 
-// }
+//}
 
 function solution(clothes){
     let answer = 1;
@@ -24,6 +24,7 @@ function solution(clothes){
         if (arr[x[1]]) arr[x[1]]++;
         else arr[x[1]] = 1;
     }
+
     for (let i of Object.keys(arr)) {
         answer *= arr[i] + 1; // 아무것도 입지 않은 경우를 +1 해준다. 
     }

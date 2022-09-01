@@ -20,7 +20,7 @@
 // permutation(input);
 // console.log(count);
 
-// // 순열 예제 2
+// 순열 예제 2
 // let count2 = 0;
 // function permutation2(arr, s, r) {      // s. 시작할위치 , R. 몇개를 뽑을지
 //     //1. 재귀를 멈춰야할 조건
