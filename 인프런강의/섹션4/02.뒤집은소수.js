@@ -35,6 +35,7 @@ function solution(arr) {
         while(x) { // x가 0되면 멈춘다. 
             let t = x % 10; 
             res = res * 10 + t; // 뒤집어진다. 
+            
             x = parseInt(x / 10); // 몫
         }
         if(isPrime(res)) answer.push(res);
