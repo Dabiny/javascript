@@ -15,7 +15,7 @@
 
 
 // 슬라이딩 윈도우 알고리즘 옆으로 창문열듯이 진행
-// n * k 2중포문돌아야함 
+// n * k 2번 포문돌아야함 
 // n만큼만 도는 것
 function solution(arr, day) {
     let answer = Number.MIN_SAFE_INTEGER;
