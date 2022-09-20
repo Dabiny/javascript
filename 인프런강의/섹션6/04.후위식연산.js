@@ -57,7 +57,7 @@ function solution(str) {
             else if (x === '/') stack.push(lt / rt);
         }
     }
-    answer = stack[0];
+    answer = stack[0]; // 마지막에 들어가있는 숫자가 다 연산된 숫자다. 
     return answer;
 }
 console.log(solution("352+*9-"));

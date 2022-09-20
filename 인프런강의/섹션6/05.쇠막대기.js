@@ -5,17 +5,19 @@ function solution (s) {
     for (let i = 0; i < s.length; i++) {
         if (s[i] === '(') stack.push(s[i]);
         else {
-            if (s[i - 1] == '(') {
-                stack.pop();
-                answer += stack.length;
+            if (s[i - 1] == '(') { // 레이저 
+                stack.pop(); 
+                answer += stack.length; // 레이저가 자른 조각들을 더해줌
             }
             else {
-                stack.pop();
-                answer++;
+                stack.pop(); // 레이저가 아니고 막대기가 하나 끝났으니 pop하고
+                answer++; // 1누적 (잘린 끄트머리)
             }
         }
     }
     return answer;
 }
-console.log(solution("()(((()())(())()))(())"));
-console.log(solution("(((()(()()))(())()))(()())"));
+console.log(solution("()(((()())(())()))(())")); // 17
+console.log(solution("(((()(()()))(())()))(()())")); // 24
+// 다시 풀기 
+
