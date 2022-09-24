@@ -34,4 +34,5 @@ function solution(n, f) {
     DFS(0, 0);
     return answer;
 }
-console.log(solution(4, 16)); 
+console.log(solution(4, 16)); // 이건 다시꼭봐야함..
+
