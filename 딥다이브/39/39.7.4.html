@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="users">
+        <li id="1" data-user-id="7621">Lee</li>
+        <li id="2" data-user-id="8910" data-role="subscriber">Kim</li>
+    </ul>
+</body>
+<script>
+    const users = [...document.querySelector('.users').children];
+
+    const user = users.find(user => user.dataset.userId === '7621');
+    console.log(user.dataset.role); // admin
+
+    user.dataset.role = 'subscriber';
+    console.log(user.dataset.role); // subscriber
+    console.log(user.dataset);
+    // DOMStringMap {userId: '7621', role: 'subscriber'}
+
+    user.dataset.role = 'admin';
+    console.log(user.dataset);
+    // DOMStringMap {userId: '7621', role: 'admin'
+    // <li id="1" data-user-id="7621" data-role="admin">Lee</li>
+    // 케밥케이스로 바꿔들어간다. 
+</script>
+</html>

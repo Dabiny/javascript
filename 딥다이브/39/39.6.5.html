@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+    </ul>
+</body>
+<script>
+    // 지정 위치에 노드 삽입
+    const $fruits = document.getElementById('fruits');
+    const $li = document.createElement('li');
+
+    $li.appendChild(document.createTextNode('Orange'));
+
+    // $li 요소 노드를 #fruits 요소 노드의 마지막 자식 요소 앞에 삽입.
+    //$fruits.insertBefore($li, $fruits.lastElementChild);
+
+    // 두 번째 인수로 전달받은 노드가 null이면 $li 요소 노드를 #fruits요소 노드의
+    // 마지막 자식 노드로 추가
+    $fruits.insertBefore($li, null);
+</script>
+</html>

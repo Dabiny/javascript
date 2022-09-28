@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="user" type="text" value="dabin">
+</body>
+<script>
+    const { attributes } = document.getElementById('user');
+
+    console.log(attributes.id.value); // user
+    console.log(attributes.type.value); // test
+    console.log(attributes.value.value); // dabin
+</script>
+</html>

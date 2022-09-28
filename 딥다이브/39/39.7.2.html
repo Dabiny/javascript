@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="user" type="text" value="dabin">
+</body>
+<script>
+    const $input = document.getElementById('user');
+
+    const inputValue = $input.getAttribute('value');
+    console.log(inputValue); // dabin
+
+    //$input.setAttribute('type', 'submit');
+    // 제출버튼으로 변경됨
+
+    // if($input.hasAttribute('value')) {
+    //     $input.removeAttribute('value');
+    // }
+
+    // value 어트리뷰트가 삭제되었다. 
+    //console.log($input.hasAttribute('value')); // false
+    
+    //$input.value = 'foo';
+    //console.log($input.value); // foo
+
+    //console.log($input.getAttribute('value')); // foo
+
+    // 사용자가 input 요소의 입력 필드에 값을 입력할때마다 input 요소 노드의 value 프로퍼티 값
+    // 즉 최신 상태 값을 취득한다. value 프로퍼티 값은 사용자의 입력에 의해 동적으로 변경된다. 
+
+    $input.oninput = () => {
+        console.log('value 프로퍼티 값', $input.value);
+    };
+
+    console.log('value 어트리뷰트 값', $input.getAttribute('value'));
+
+
+    $input.value = "foo";
+    console.log($input.value); // foo
+
+    console.log($input.getAttribute('value')); // dabin
+</script>
+</html>

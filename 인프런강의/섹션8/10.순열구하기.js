@@ -27,7 +27,7 @@ function solution(n,m,arr){
             console.log(tmp);
             cnt++;
         }
-        else {
+        else{
             for (let i = 0; i < n; i++){
                 if(ch[i] === 0) { // 내가 틀린 부분
                     ch[i] = 1;

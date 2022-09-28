@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="color:red">Hello world</div>
+</body>
+<script>
+    const $div = document.querySelector('div');
+
+    // 인라인 스타일 취득
+    console.log($div.style); //CSSStyleDeclaration { 0: "color"...}
+
+    // 인라인 스타일 변경
+    $div.style.color = 'blue';
+
+    // 인라인 스타일 추가
+    $div.style.width = '100px';
+    $div.style.height = '100px';
+    $div.style.backgroundColor = 'yellow';
+</script>
+</html>

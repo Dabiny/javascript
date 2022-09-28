@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px; height: 100px;
+            background-color: antiquewhite;
+        }
+
+        .red{
+            color : red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box red"> Hello world </div>
+    <script>
+        const $box = document.querySelector('.box');
+
+        // .box 요소의 class 어트리뷰트 값을 취득
+        console.log($box.className);
+
+        // .box 요소의 class 어트리뷰트 값 중에서 'red'만 'blue'로 변경
+        //$box.className = $box.className.replace('red', 'blue');
+
+
+        console.log($box.classList);
+        // DOMTokenList(2) ['box', 'blue', value: 'box blue']
+
+        $box.classList.replace('red', 'blue');
+
+
+        $box.classList.add('foo'); // class='box red foo'
+        $box.classList.add('bar', 'baz'); // class='box red foo bar baz'
+
+        
+        $box.classList.remove('foo'); // class='box red bar baz'
+        $box.classList.remove('bar', 'baz'); // class ="box red"
+        $box.classList.remove('x'); // class="box red"
+
+
+        $box.classList.item(0); // -> 'box'
+        $box.classList.item(1); // -> 'red'
+
+
+        $box.classList.contains('box'); // true
+        $box.classList.contains('blue'); // false
+
+        $box.classList.replace('red', 'blue'); // class="box blue"
+
+        $box.classList.toggle('foo'); // class="box blue foo"
+        $box.classList.toggle('foo'); // class='box blue'
+
+        // class 어트리뷰트에 강제로 foo 클래스 추가
+        $box.classList.toggle('foo', true); // class="box blue foo"
+        // class 어트리뷰트에 강제로 foo 클래스 제거
+        $box.classList.toggle('foo', false); // class="box blue"
+    </script>
+</body>
+</html>
