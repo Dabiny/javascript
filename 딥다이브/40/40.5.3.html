@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 5px solid orange;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    const $box = document.querySelector('.box');
+
+    // 드래그 시작 시점의 마우스 포인터 위치
+    const initialMousePos = {
+        x: 0,
+        y: 0
+    };
+
+    // 오프셋: 이동할 거리
+    const offset = {
+        x: 0,
+        y: 0
+    };
+
+    const move = e => {
+        offset.x = e.clientX - initialMousePos.x;
+        offset.y = e.clientY - initialMousePos.y;
+
+        // translage3d는 GPU를 사용하므로 absolute의 top, left를 사용하는 것보다 빠르다.
+        // top, left는 레이아웃에 영향을 준다. 
+        $box.style.transform =  `translate3d(${offset.x}px, ${offset.y}px, 0)`;
+    };
+
+    // mousedown 이벤트가 발생하면 드래그 시작 시점의 마우스 포인터 좌표를 저장한다. 
+    $box.addEventListener('mousedown', e => {
+        // 이동거리를 계산하기 위해 mousedown 이벤트가 발생시 (드래그 시작시) 시작 시점의
+        // 마우스 포인터 좌표를 저장해둔다. 
+        // 한 번 이상 드래그로 이동한 경우 move에서 translate3d로 이동한 상태이므로 offset.x, offset.y를 빼주어야한다. 
+        initialMousePos.x = e.clientX - offset.x;
+        initialMousePos.y = e.clientY - offset.y;
+
+        document.addEventListener('mousemove', move);
+    });
+
+    // mouseup 이벤트가 발생하면 mousemove이벤트를 제거해 이동을 멈춘다. 
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener('mousemove', move);
+    });
+</script>
+</html>

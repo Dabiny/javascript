@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이벤트 핸들러에 인수를 전달하기 곤란하다.  -->
+    <button onclick="sayHi('lee')">Click Me!</button>
+    
+    <button onclick="console.log('hi! '); console.log('lee');">Click!</button>
+
+    <!-- Anular -->
+    <button (click)="handleClick($event)">Save</button>
+
+    <!-- {React} -->
+    <button onClick={handleClick}>Save2</button>
+
+    <!-- Svelte -->
+    <button on:Click={handleClick}>Save3</button>
+
+    <!-- Vue.js -->
+    <button v-on:click="handleClick($event)">Save4</button>
+
+</body>
+<script>
+    function sayHi(name) {
+        console.log(`Hi! ${name}~`); //Hi lee~
+    }
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>User name
+        <input type='text'>
+    </label>
+    <em class="message"></em>
+</body>
+<script>
+    const MIN_USER_NAME_LENGTH = 5; // 이름 최소길이 
+    const $input = document.querySelector('input[type=text]');
+    const $msg = document.querySelector('.message');
+
+    // 이벤트 핸들러를 반환하는 함수
+    const checkUserNameLength = min =>  {
+        $msg.textContent = $input.value.length < min ? `이름은 ${min}자 이상 입력해 주세요` : '';
+    };
+
+    // $input.onblur = () => {
+    //     checkUserNameLength(MIN_USER_NAME_LENGTH);
+    // };
+
+    $input.onblur = checkUserNameLength(MIN_USER_NAME_LENGTH);
+
+    const keyboardEvent = new KeyboardEvent('keyup');
+    console.log(keyboardEvent.type); // keyup
+    
+    // 커스텀이벤트 생성자 함수로 foo 이벤트타입의 커스텀 이벤트 객체를 생성
+    const coustomEvent = new CustomEvent('foo', {
+        bubbles: true,
+        cancelable: true
+    });
+    console.log(coustomEvent.type); // foo
+    console.log(coustomEvent.bubbles); // true
+    console.log(coustomEvent.cancelable); // true
+
+
+    const mouseEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        clientX: 50,
+        clientY: 100
+    });
+
+    console.log(mouseEvent.clientX); // 50
+    console.log(mouseEvent.clientY); // 100
+
+    const keyboard = new KeyboardEvent('keyup', { key: 'Enter' });
+    console.log(keyboard.key); // Enter
+
+</script>
+</html>

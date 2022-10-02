@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn1">0</button>
+    <button class="btn2">0</button>
+</body>
+<script>
+    const $button1 = document.querySelector('.btn1');
+    const $button2 = document.querySelector('.btn2');
+
+    $button1.onclick = function (e) {
+        // this는 이벤트를 바인딩한 DOM 요소를 가리킨다. 
+        console.log(this);
+        console.log(e.currentTarget); 
+        console.log(this === e.currentTarget);
+
+        ++this.textContent;
+    };
+
+    // $button2.addEventListener('click', function(e) {
+    //     // this는 이벤트를 바인딩한 DOM 요소를 가리킨다. 
+    //     console.log(this);
+    //     console.log(e.currentTarget);
+    //     console.log(this === e.currentTarget);
+
+    //     ++this.textContent;
+    // });
+    
+    $button2.addEventListener('click', e =>  {
+        console.log(this); // window
+        console.log(e.currentTarget); // $button2
+        console.log(this === e.currentTarget); // false
+
+        // this는 window를 가리키므로 window.textContent에 NaN(undefined + 1)을 할당한다.
+        ++this.textContent;
+    });
+</script>
+</html>

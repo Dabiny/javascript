@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <input type="checkbox">
+    <button>Click Me!</button>
+    <em class="message">off</em>
+</body>
+<script>
+    // 생성자 함수를 호출하여 foo 이벤트 타입의 Event 객체를 생성한다. 
+    let e = new Event('foo');
+    console.log(e); // Event {isTrusted: false, type: "foo"...}
+    
+    console.log(e.type); // foo
+    console.log(e instanceof Event); // true
+    console.log(e instanceof Object); // true
+
+    // FocusEvent 생성자 함수를 호출하여 focus 이벤트 타입의 FocusEvent 객체를 생성한다. 
+    e = new FocusEvent('focus');
+    console.log(e); //FocusEvent {isTrusted: false, relatedTarget: null, view: null, detail: 0, sourceCapabilities: null, …}
+
+    e = new MouseEvent('click');
+    console.log(e); // MouseEvent {isTrusted: false, screenX: 0, screenY: 0, clientX: 0, clientY: 0, …}
+
+    e = new KeyboardEvent('keyup'); // KeyboardEvent {isTrusted: false, key: '', code: '', location: 0, ctrlKey: false, …}
+    console.log(e);
+
+    e = new InputEvent('change');
+    console.log(e); // InputEvent {isTrusted: false, data: null, isComposing: false, inputType: '', dataTransfer: null, …}
+
+
+    //40-22
+    const $input = document.querySelector('input[type=text]');
+    const $checkbox = document.querySelector('input[type=checkbox]');
+    const $button = document.querySelector('button');
+
+    // load 이벤트가 발생하면 Event 타입의 이벤트 객체가 생성된다. 
+    window.onload = console.log; // Event {isTrusted: true, type: 'load', target: document, currentTarget: Window, eventPhase: 2, …}
+
+    // change 이벤트가 발생하면 Event 타입의 이벤트가 객체가 생성된다. 
+    $checkbox.onchange = console.log; // Event {isTrusted: true, type: 'change', target: input, currentTarget: input, eventPhase: 2, …}
+
+    // focus 이벤트가 발생하면 FocusEvent 타입의 이벤트 객체가 생성된다. 
+    $input.onfocus = console.log; // FocusEvent {isTrusted: true, relatedTarget: input, view: Window, detail: 0, sourceCapabilities: InputDeviceCapabilities, …}
+
+    // input 이벤트가 발생하면 InputEvent 타입의 이벤트 객체가 생성된다.
+    $input.oninput = console.log; // InputEvent {isTrusted: true, data: 'd', isComposing: false, inputType: 'insertText', dataTransfer: null, …}
+
+    // keyup 이벤트가 발생하면 KeyboardEvent 타입의 이벤트 객체가 생성된다. 
+    $input.onkeyup = console.log; // KeyboardEvent {isTrusted: true, key: 'd', code: 'KeyD', location: 0, ctrlKey: false, …}
+
+    // click 이벤트가 발생하면 MouseEvent 타입의 이벤트 객체가 생성된다.
+    $button.onclick = console.log; // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+
+
+    // 40-23
+    const $msg = document.querySelector('.message');
+
+    // change 이벤트가 발생하면 Event 타입의 이벤트 객체가 생성된다. 
+    $checkbox.onchange = e => {
+        // e는 change 이벤트 객체 
+        console.log(e); // Event {isTrusted: true, type: 'change', target: input, currentTarget: input, eventPhase: 2, …}
+        console.log(Object.getPrototypeOf(e) === Event.prototype); // 
+        $msg.textContent = e.target.checked ? 'on' : 'off';
+    };
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click me</button>
+</body>
+<script>
+    const $btn = document.querySelector('button');
+
+    const handleClick = () => console.log('button click');
+
+    // 이벤트 핸들러 등록
+    $btn.addEventListener('click', handleClick);
+
+    // 이벤트 핸들러 제거
+    // addEventListner에 전달한 인수와 일치해야 한다. 
+    $btn.removeEventListener('click', handleClick, true); // 실패
+    $btn.removeEventListener('click', handleClick); // 성공
+
+    // 이벤트 핸들러 등록
+    $btn.addEventListener('click', () => console.log('무명함수 버튼클릭'));
+    // 등록한 이벤트 핸들러를 참조할 수 없으므로 제거할 수 없다. 
+
+
+    // 기명함수 핸들러 등록
+    $btn.addEventListener('click', function foo() {
+        console.log('기명함수 호출');
+        // 이벤트 핸들러 제거 따라서 이벤트 핸들러는 단 한번만 호출된다. 
+        $btn.removeEventListener('click', foo);
+    });
+
+    // 무명함수를 참조하는법 40-16
+    $btn.addEventListener('click', function () {
+        console.log(arguments.callee);
+        $btn.removeEventListener('click', arguments.callee);
+    });
+
+    
+</script>
+</html>
