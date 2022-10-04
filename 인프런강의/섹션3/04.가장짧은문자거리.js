@@ -51,3 +51,4 @@ function solution(str, t) {
 } 
 
 console.log(solution("teachermode", "e"))
+// 다시보기

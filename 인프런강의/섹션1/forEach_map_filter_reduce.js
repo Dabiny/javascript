@@ -15,7 +15,7 @@ function forEach(pridicate, thisArg) {
 */
 a.forEach(function(v, i) { //callback 함수 첫번째는 값, 두번쨰는 인덱스 외우자. 
     console.log(v, i, this); //this는 thisArg를 가리킴 [1, 2]
-}, [1, 2]) 
+}, [1, 2]) // 콜백함수 내부에 사용되는 this에 [1, 2]를 바인딩 시킨다. 이렇게 하면 [1, 2]를 포함시킨다. 
 
 /*
 10 0

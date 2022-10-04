@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .containter {
+        .container {
             width: 300px;
             height: 300px;
             background-color: rebeccapurple;
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <div class="containter">
+    <div class="container">
         <div class="content"></div>
     </div>
     <div>
@@ -39,12 +39,10 @@
     const throttle = (callback, delay) => {
         let timerId;
 
-        // throttle 함수는 timerId를 기억하는 클로저를 반환한다. 
+        console.log(timerId);
+
         return event => {
-            // delay가 경과하기 이전에 이벤트가 발생하면 아무것도 하지 않다가
-            // delay가 경과했을 때 이벤트가 발생하면 새로운 타이머를 재설정한다. 
-            // 따라서 delay간격으로 callback이 호출된다. 
-            if (timerId) return;
+            if(timerId) return;
             timerId = setTimeout(() => {
                 callback(event);
                 timerId = null;
@@ -53,12 +51,14 @@
     };
 
     let normalCount = 0;
-    $container.addEventListener('scroll', () => {
+    $container.addEventListener = ('scroll', () => {
         $normalCount.textContent = ++normalCount;
     });
+
     let throttleCount = 0;
-    $container.addEventListener('scroll', throttle(() => {
+    $container.addEventListener = ('scroll', throttle(() => {
         $throttleCount.textContent = ++throttleCount;
     }, 100));
+
 </script>
 </html>
