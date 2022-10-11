@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //const fetch = require('node-fetch');
+
+    const async = genratorFunc => {
+        const generator = genratorFunc(); // 2 제너레이터 객체 생성
+        
+        const onResolved = arg => {
+            const result = generator.next(arg); // 5
+            return result.done ? result.value /* 9 마지막 done이 true라서 value값 반환*/ : result.value.then(res => onResolved(res)); // 7 재귀호출 (done: false면)
+        }
+
+        return onResolved; // 3 함수 반환 상위 스코프의 generator를 기억하는 클로저.
+    }
+
+    (async(function* fetchTodo() { // 1. async 함수가 호출되면 인수로전달받은 제너레이터 함수 fetchtodo 호출 
+        const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+        const response = yield fetch(url); // 6 5가 호출되면 여기까지 실행됨. 
+        const todo = yield response.json(); // 8 재귀호출되 다시 여기까지 실행됨.
+        console.log(todo);
+         // {userId: 1, id: 1, title: 'delectus aut autem', completed: false}
+    })()); // 4 onResolved함수를 즉시 호출
+</script>
+</html>
