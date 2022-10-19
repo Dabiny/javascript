@@ -1,40 +1,40 @@
 
-// function solution(arr) {
-//     let mxY = 0;
-//     let mxX = 0;
+function solution(arr) {
+    let mxY = 0;
+    let mxX = 0;
 
-//     for (let y = 0; y < arr.length; y++){ // 가로
-//         let sum = 0;
-//         for (let x = 0; x < arr[y].length; x++){
-//             sum += arr[y][x];
-//         }
-//         if (mxX < sum) mxX = sum;
-//     }
-//     for (let x = 0; x < arr.length; x++){ // 세로
-//         let sum = 0;
-//         for (let y = 0; y < arr[x].length; y++){
-//             sum += arr[y][x];
-//         }
-//         if (mxY < sum) mxY = sum;
-//     }
+    for (let y = 0; y < arr.length; y++){ // 가로
+        let sum = 0;
+        for (let x = 0; x < arr[y].length; x++){
+            sum += arr[y][x];
+        }
+        if (mxX < sum) mxX = sum;
+    }
+    for (let x = 0; x < arr.length; x++){ // 세로
+        let sum = 0;
+        for (let y = 0; y < arr[x].length; y++){
+            sum += arr[y][x];
+        }
+        if (mxY < sum) mxY = sum;
+    }
 
-//     let sum1 = 0; //대각선은 하나이니까 sum1에 저장
-//     for (let x = 0; x < arr.length; x++){ // 대각선 1
-//         sum1 += arr[x][x];
-//     }
+    let sum1 = 0; //대각선은 하나이니까 sum1에 저장
+    for (let x = 0; x < arr.length; x++){ // 대각선 1
+        sum1 += arr[x][x];
+    }
 
-//     let y = arr.length - 1;
-//     let sum2 = 0; // 대각선은 하나 sum2저장
-//     for (let x = 0; x < arr.length; x++){ // 대각선 2
-//        sum2 += arr[x][y--];
-//     }
+    let y = arr.length - 1;
+    let sum2 = 0; // 대각선은 하나 sum2저장
+    for (let x = 0; x < arr.length; x++){ // 대각선 2
+       sum2 += arr[x][y--];
+    }
 
-//     let A = mxX > mxY ? mxX : mxY; 
-//     let B = sum1 > sum2 ? sum1 : sum2; //대각선 두개 비교
-//     console.log(mxX, mxY, sum1, sum2);
+    let A = mxX > mxY ? mxX : mxY; 
+    let B = sum1 > sum2 ? sum1 : sum2; //대각선 두개 비교
+    console.log(mxX, mxY, sum1, sum2);
 
-//     return A > B ? A : B;
-// }
+    return A > B ? A : B;
+}
 
 // let arr=[[10, 13, 10, 12, 15], 
 //         [12, 39, 30, 23, 11],
