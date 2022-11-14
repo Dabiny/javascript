@@ -45,25 +45,29 @@ for (let i = 0; i < N; i++) {
     board.push(input[i].split(' ').map((str) => Number(str)));
 }
 
-const MAX = 5;
-let answer = 0;
-let board2;
+const MAX = 5; // 최대 5번
+let answer = 0; // 결과값
+let board2; // 새로 움직일 보드
 
 for (let c = 0; c < 4 ** MAX; c++) { // 4방향 최대 5번 -> 4 ** 5  내가 의문이었던것 1 
     let temp = c; 
-    board2 = JSON.parse(JSON.stringify(board)); // 깊은 복사
+    // 변경될 board2
+    board2 = JSON.parse(JSON.stringify(board)); // 원본 깊은 복사
 
-    for(let i = 0; i < MAX; i++) { // 5번
+    for(let i = 0; i < MAX; i++) { // 최대 5번돌면서
         const dir = temp % 4; // 방향 = 0, 1, 2, 3 네가지가 나온다. 
-        tilt(dir);
-        temp = Math.floor(temp / 4, 0);
-        console.log(temp);
+        tilt(dir); // 돌려주는 함수
+        console.log(`전 tmp: ${temp}`);
+        temp = Math.floor(temp / 4); // 숫자가 엄청 커질때 생각해서 나누기
+        console.log(`후 dir: ${dir} tmp: ${temp}`);
+        // dir만큼 돌고 -> 왼쪽으로만 밀어보고 (왼쪽으로만 밀어보기때문에 다돌려봐야됨.)
     }
-    console.table(board2);
+    // console.table(board2);
 
     // 2차원 배열 max값 찾는법. 
     answer = Math.max(answer, ...board2.map((line) => Math.max(...line)));
 }
+console.log(answer);
 
 function tilt(dir) {
     while(dir--) rotate(); // 방향이 0일때는 돌지 않는다. 
@@ -90,4 +94,7 @@ function rotate() {
             board2[i][j] = temp[N - 1 - j][i];
         }
     }
+    // console.table(board2);
 }
+
+// 오늘 배운것: 나머지, 몫을 활용해서 경우의수 도출하기
