@@ -99,8 +99,7 @@ while (1) {
             curDir = (curDir + 1) % 4;
         }
         else if (ml[0][1] === 'L') {
-            if (curDir - 1 < 0) curDir = 3;
-            else curDir = (curDir - 1) % 4;
+            curDir = (curDir + 3) % 4;
         }
 
         ml.shift();

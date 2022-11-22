@@ -96,5 +96,4 @@ function rotate() {
     }
     // console.table(board2);
 }
-
 // 오늘 배운것: 나머지, 몫을 활용해서 경우의수 도출하기

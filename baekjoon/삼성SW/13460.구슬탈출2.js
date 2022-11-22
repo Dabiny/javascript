@@ -258,8 +258,6 @@ const bfs = () => {
             if (cache[`${nRx},${nRy},${nBx},${nBy}`]) continue;
             cache[`${nRx},${nRy},${nBx},${nBy}`] = true;
             queue.push([nRx, nRy, nBx, nBy, depth + 1]);
-            console.log(queue, dx[i], dy[i]);
-            console.log(cache)
         }
     }
     return -1;
