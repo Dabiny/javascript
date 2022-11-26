@@ -78,3 +78,4 @@ for (let i = 0; i < wall.length; i++) {
     }
 }
 console.log(answer);
+

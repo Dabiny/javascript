@@ -5,7 +5,7 @@
             "productList": [
                 {
                     "id": 1,
-                    "imgSrc": "JSProject/BASIC_MARKET/public/assets/당근.jpg",
+                    "imgSrc": "public/assets/당근.jpg",
                     "name": "당근 2개입",
                     "discountPersent": 10,
                     "price": 10000,
@@ -13,7 +13,7 @@
                 },
                 {
                     "id": 2,
-                    "imgSrc": "JSProject/BASIC_MARKET/public/assets/파프리카.jpg",
+                    "imgSrc": "public/assets/파프리카.jpg",
                     "name": "파프리카 2입",
                     "discountPersent": 20,
                     "price": 2500,
@@ -21,7 +21,7 @@
                 },
                 {
                     "id": 3,
-                    "imgSrc": "JSProject/BASIC_MARKET/public/assets/키위.jpg",
+                    "imgSrc": "public/assets/키위.jpg",
                     "name": "키위 1상자",
                     "discountPersent": 10000,
                     "price": 10,
@@ -29,8 +29,45 @@
                 },
                 {
                     "id": 4,
-                    "imgSrc": "JSProject/BASIC_MARKET/public/assets/삼겹살.jpg",
+                    "imgSrc": "public/assets/삼겹살.jpg",
                     "name": "삼겹살 500g",
+                    "discountPersent": 20,
+                    "price": 5000,
+                    "dicountPrice": 4500
+                }
+            ]
+        },
+        {
+            "sectionTitle": "오늘 들어온 신상품",
+            "productList": [
+                {
+                    "id": 5,
+                    "imgSrc": "public/assets/식빵.jpg",
+                    "name": "[파리땡게트] 식빵 1봉지",
+                    "discountPersent": 10,
+                    "price": 10000,
+                    "dicountPrice": 9000
+                },
+                {
+                    "id": 6,
+                    "imgSrc": "public/assets/원두.jpg",
+                    "name": "[폴바셋] 폴바셋 원두 150g",
+                    "discountPersent": 20,
+                    "price": 2500,
+                    "dicountPrice": 2000
+                },
+                {
+                    "id": 3,
+                    "imgSrc": "public/assets/키위.jpg",
+                    "name": "[산지 직배송🚚] 키위 1상자",
+                    "discountPersent": 10,
+                    "price": 10000,
+                    "dicountPrice": 9000
+                },
+                {
+                    "id": 4,
+                    "imgSrc": "public/assets/삼겹살.jpg",
+                    "name": "제주산 삼겹살 500g",
                     "discountPersent": 20,
                     "price": 5000,
                     "dicountPrice": 4500

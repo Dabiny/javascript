@@ -9,7 +9,7 @@
 import { makeDOMproperties } from "../utils/dom.js";
 import { getProductCard } from './productCard.js';
 
-export const productList = (productInfoList) => {
+export const productList = (productInfoList, removeLoadCallback) => {
     const $productListSection = makeDOMproperties("section", {
         className: "product-section-con",
     });
@@ -17,7 +17,7 @@ export const productList = (productInfoList) => {
         $productListSection.appendChild(
           getProductCard({ // 상품카드를 여기서 만들어주기. 
             ...info, // info를 뿌려준다. 
-          })
+          }, removeLoadCallback)
         );
     })
     return $productListSection;

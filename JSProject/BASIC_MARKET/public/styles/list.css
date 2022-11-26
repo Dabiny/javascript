@@ -2,20 +2,30 @@
     display: flex;
     padding: 30px;
     max-width: 1050px;
-    margin: 0 auto 30px;
+    margin: 0 auto 10px;
     gap: 20px;
 }
 .product-filter-con > button {
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #3f5cc8;
+    background-color: #95bdaa;
     color: white;
 }
 .product-filter-con > button:hover {
-    background-color: #6c84da;
+    background-color: #aebd03;
 }
 .product-filter > input {
     padding: 10px;
+}
+.total-product {
+    display: flex;
+    justify-content: center;
+
+    margin: 0 auto 15px;
+
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(73, 92, 234);
 }
 .product-section-con {
     display: flex;

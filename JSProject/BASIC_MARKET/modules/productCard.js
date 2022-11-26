@@ -98,7 +98,7 @@
 // 상품카드를 동적으로 만들려면 함수가하나 필요하다.
 import { makeDOMproperties, appendChildList } from "../utils/dom.js";
 import { getCartToggleButton } from "./cartToggleButton.js";
-export const getProductCard = (productInfo) => {
+export const getProductCard = (productInfo, removeLoadCallback) => {
     const { imgSrc, name, discountPersent, dicountPrice, price } = productInfo;
 
     const $productCardSection = makeDOMproperties('div', {
@@ -120,7 +120,7 @@ export const getProductCard = (productInfo) => {
     });
 
     // 카트 이미지 넣기, 카트이미지는 클릭시 기능을 구현해야 한다. 
-    const $cartToggle = getCartToggleButton(productInfo);
+    const $cartToggle = getCartToggleButton(productInfo, removeLoadCallback);
     appendChildList($productImageCon, [$productImage, $cartToggle]);
 
     const $productNameDescription = makeDOMproperties("div", {
