@@ -1,3 +1,4 @@
+import { fetchSectionData } from "./modules/fetch.js";
 import { getProductCard } from "./modules/productCard.js";
 import { productList } from "./modules/productList.js";
 import { getProductSection } from "./modules/productSection.js";
@@ -16,15 +17,13 @@ import { getProductSection } from "./modules/productSection.js";
 // document.body.appendChild(populerSection);
 
 try {
-    const response = await fetch("public/mock/sectionListData.json");
-    const data = await response.json();
-    const sectionInfoList = data.sectionInfoList;
+    const productInfoList = await fetchSectionData();
 
-    sectionInfoList.forEach((sectionInfo) => {
-        const {sectionTitle, productList} = sectionInfo;
+    productInfoList.forEach((sectionInfo) => {
+        const { sectionTitle, productList } = sectionInfo;
         const $productSectionDOM = getProductSection(sectionTitle, productList);
         document.body.appendChild($productSectionDOM);
-    })
-}catch(e) {
+    });
+} catch (e) {
     console.error(e);
 }

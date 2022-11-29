@@ -19,6 +19,7 @@ import { getCartInfo } from "./modules/cartToggleButton.js";
 import { makeDOMproperties } from "./utils/dom.js";
 import {productList} from './modules/productList.js';
 import { CART_COOKIE_KEY } from "./constants/cart.js";
+import { setCartPayInfo } from "./modules/setCartPayInfo.js";
 const $cartSectionDOM = document.getElementsByTagName('section')[0]; // 카트목록 붙일 곳
 const $cartPayContainerDOM = document.getElementById("cart-pay-container");
 const cartInfo = getCartInfo();
@@ -41,3 +42,5 @@ $removeAllButton.onclick = () => {
     localStorage.removeItem(CART_COOKIE_KEY);
     location.reload();
 }
+
+setCartPayInfo();

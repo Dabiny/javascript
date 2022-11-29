@@ -23,8 +23,8 @@
                     "id": 3,
                     "imgSrc": "public/assets/키위.jpg",
                     "name": "키위 1상자",
-                    "discountPersent": 10000,
-                    "price": 10,
+                    "discountPersent": 10,
+                    "price": 10000,
                     "dicountPrice": 9000
                 },
                 {

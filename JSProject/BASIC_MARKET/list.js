@@ -1,4 +1,6 @@
+import { fetchSectionData } from "./modules/fetch.js";
 import { getProductCard } from "./modules/productCard.js";
+import { setSearchButtonEvent } from "./modules/productFilter.js";
 import { productList } from "./modules/productList.js";
 
 const $sectionDOM = document.getElementsByTagName('section')[0];
@@ -48,15 +50,23 @@ const $sectionDOM = document.getElementsByTagName('section')[0];
 
 // $sectionDOM.appendChild(productListContainer);
 
-try {
-    const response = await fetch("public/mock/totalListData.json");
-    const data = await response.json();
-    const totalProduct = data.totalList;
-    
-    const $productListDOM = productList(totalProduct);
-    $sectionDOM.appendChild($productListDOM);
-}
-catch (error) {
-    console.log(error);
-}
+const sectionInfoList = await fetchSectionData();
 
+const productListJSON = sectionInfoList.reduce((prev, curr) => {
+    return [...prev, ...curr.productList];
+}, []);
+
+
+// JSON에 있는 중복상품 없애주기 
+// filter함수는 콜백함수에서 정의한 조건이 true인 항목만 리턴한다. 
+const filterJSONArray = productListJSON.filter((info1, i) => {
+    // findIndex는 콜백함수에 정의한 조건이 true인 항목의 index를 리턴한다. 
+    return productListJSON.findIndex((info2, j) => {
+        return info1.id === info2.id;
+    }) === i; 
+})
+
+const $productListDOM = productList(filterJSONArray);
+$sectionDOM.appendChild($productListDOM);
+
+setSearchButtonEvent(filterJSONArray);
