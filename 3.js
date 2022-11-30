@@ -1,18 +1,25 @@
-function solution(v) {
-    let answer;
-
-    function DFS(v) { // 넘어오는건 부모
-        if (v > 7) {
-            return;
-        }
-        else { // else는 무조건 DFS가 뻗는다 생각하기 
-            DFS(v * 2); // 왼쪽자식 뻗기
-            DFS(v * 2 + 1); // 오른쪽 자식 뻗기
-            console.log(v); // 부모 출력하고
+function solution(N, M, A) {
+    let totalScore = 0;
+    function dfs(l, t, s) {
+        if (t > M) return;
+        if (l === N) {
+            if (t <= M) {
+                totalScore = Math.max(totalScore, s);
+            }
+        } else {
+            dfs(l + 1, t + A[l][1], s + A[l][0]);
+            dfs(l + 1, t, s);
         }
     }
-    DFS(v);
-
+    dfs(0, 0, 0);
+    return totalScore;
 }
-
-console.log(solution(1));
+console.log(
+    solution(5, 20, [
+        [10, 5], // 점수, 시간
+        [25, 12],
+        [15, 8],
+        [6, 3],
+        [7, 4],
+    ])
+);

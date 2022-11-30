@@ -23,26 +23,24 @@
 // }  
 // console.log(solution([1, 3, 5, 6, 7, 10]));
 
-function solution(arr) {
-    let answer = "NO";
-    let total = arr.reduce((a, b) => a + b, 0);
-    let n = arr.length;
-    let flag = 0;
-
-    function DFS(l, sum) {
-        if (flag) return; 
-        if(l === n) {
-            if ((total - sum) === sum){
+function solution(N, Q) {
+    let answer = "NO",
+        flag = 0;
+    let total = Q.reduce((p, c) => p + c, 0);
+    function dfs(l, sum) {
+        if (flag) return; // 이미 답을찾아서 종료
+        if (l === N) {
+            // 5까지 적용하고 6일때
+            if (total - sum === sum) {
                 answer = "YES";
-                flag = 1;
+                flag = 1; // 답을 찾았다는 뜻
             }
-        }
-        else{
-            DFS(l + 1, sum + arr[l]); // o
-            DFS(l + 1, sum); // x
+        } else {
+            dfs(l + 1, sum + Q[l]); // O
+            dfs(l + 1, sum); // X
         }
     }
-    DFS(0, 0);
+    dfs(0, 0);
     return answer;
-}  
-console.log(solution([1, 3, 5, 6, 7, 10]));
+}
+console.log(solution(6, [1, 3, 5, 6, 7, 10]));

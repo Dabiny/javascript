@@ -1,6 +1,6 @@
 import { fetchSectionData } from "./modules/fetch.js";
 import { getProductCard } from "./modules/productCard.js";
-import { setSearchButtonEvent } from "./modules/productFilter.js";
+import { setFilterEvent, setSearchButtonEvent } from "./modules/productFilter.js";
 import { productList } from "./modules/productList.js";
 
 const $sectionDOM = document.getElementsByTagName('section')[0];
@@ -69,4 +69,5 @@ const filterJSONArray = productListJSON.filter((info1, i) => {
 const $productListDOM = productList(filterJSONArray);
 $sectionDOM.appendChild($productListDOM);
 
+setFilterEvent();
 setSearchButtonEvent(filterJSONArray);
