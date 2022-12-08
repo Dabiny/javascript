@@ -1,0 +1,221 @@
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 50% 0%;
+    }
+}
+body {
+    color: #fff;
+    background: linear-gradient(
+        -45deg,
+        rgb(255, 104, 124),
+        #e1880c,
+        rgb(31, 130, 230),
+        rgb(255, 20, 126)
+    );
+    background-size: 300% 300%;
+    animation: AnimationName 15s ease infinite;
+}
+
+#event-conatainer {
+    width: 600px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+section > div {
+    padding: 4rem 0;
+}
+
+#title-section {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: reb(211, 223, 255);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 3rem 0 3rem;
+}
+
+#title-section > .title {
+    padding-top: 0;
+}
+
+#participate-number {
+    font-size: 2.5rem;
+    margin-top: 40px;
+}
+
+.participate-num-con {
+    /* width: 100%; */
+    text-align: center;
+}
+
+.participate-title {
+    border-bottom: 1px solid white;
+    padding-bottom: 10%;
+    font-size: 1.2rem;
+}
+
+#participate-section {
+    position: relative;
+    background-color: rgba(248, 250, 255, 0.189);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.snack-card-list {
+    margin: 2%;
+}
+
+.snack-card {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    border-radius: 1rem;
+    border: 1px solid rgb(198, 198, 198);
+    background-color: white;
+    margin-bottom: 2%;
+}
+
+.snack-card.select {
+    border: 3px solid rgb(111, 164, 255);
+}
+
+.snack-card > img {
+    width: 20%;
+    margin-right: 2%;
+}
+
+.snack-description {
+    width: 78%;
+    text-align: left;
+}
+
+.snack-description > div:first-of-type {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.3rem 0 0.5rem;
+}
+
+.participate-button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+    border: solid 1px white;
+    margin: 2% 30%;
+
+    color: rgb(255, 255, 255);
+}
+
+.participate-button:hover {
+    background-color: rgba(52, 77, 99, 0.472);
+}
+
+#result-section {
+    position: relative;
+    background-color: rgba(248, 250, 255, 0.189);
+}
+
+.result-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    display: none;
+}
+
+.result-container.not-yet {
+    display: block;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.result-container > img {
+    width: 80%;
+    padding: 10px;
+    margin-top: 1rem;
+    border-radius: 2rem;
+}
+
+.result-winner {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+#mbti-section {
+    background-color: rgba(248, 250, 255, 0.189);
+}
+
+.mbti-container {
+    /* display: none; */
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+}
+
+.mbti-container.select {
+    display: block;
+}
+.mbti-select {
+    margin: 1rem;
+}
+.mbti-select > button {
+    padding: 1rem 2rem;
+    background-color: rgb(59, 131, 255);
+    border-radius: 0.5rem;
+    color: white;
+}
+.mbti-select > button:hover {
+    background-color: rgb(83, 146, 255);
+}
+.mbti-select > button:first-of-type {
+    margin-right: 1rem;
+}
+.mbti-result {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.select-retry-button,
+.mbti-retry-button {
+    padding: 1rem 2rem;
+    /* background-color: rgb(59, 131, 255); */
+    border: solid 1px white;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+#share-section {
+    text-align: center;
+}
+#url-share-button {
+    padding: 1rem 2rem;
+    /* background-color: rgb(59, 131, 255); */
+    border: solid 1px white;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}

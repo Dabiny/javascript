@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>후기 참여 이벤트</title>
+    <link href="public/styles/reset.css" rel="stylesheet" />
+    <link href="public/styles/header.css" rel="stylesheet" />
+    <link href="public/styles/event.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <a id="title" href="./index.html">나의 최애 과자는?</a>
+        <div id="tab-menu">
+            <button id="anchor-to-select">최애 과자 뽑기</button>
+            <button id="anchor-to-result">결과 보기</button>
+            <button id="anchor-to-mbti">과자 유형 검사</button>
+        </div>
+    </header>
+    <section id="event-container">
+        <div id="title-section">
+            <div class="title">나의 최애<br />과자는?</div>
+            <div class="participate-num-con">
+                <span class="participate-title">현재까지 이만큼 참여했어요!</span>
+                <div id="participate-number">3012356</div>
+            </div>
+        </div>
+        <div id="participate-section">
+            <div class="title">최애 과자 뽑기</div>
+            <div class="snack-card-list">
+            </div>
+            <button class="participate-button">선택하기</button>
+        </div>
+        <div id="result-section">
+            <div class="title">최애과자 결과 보기</div>
+            <div class="result-container not-yet">아직 뽑기 전입니다.</div>
+            <div class="result-container">
+                <div>당신의 최애 과자는 ...</div>
+                <img src="#" alt="#" />
+                <div class="result-winner">과자이름</div>
+                <div class="result-description">설명</div>
+                <button class="select-retry-button">다시 하기</button>
+            </div>
+        </div>
+        <div id="mbti-section">
+            <div class="mbti-container">
+                <div class="title"> 과자 유형 검사</div>
+                <div class="mbti-question">짠 과자가 더 좋다.</div>
+                <div class="mbti-select">
+                    <button type="button">Yes</button>
+                    <button type="button">No</button>
+                </div>
+            </div>
+            <div class="mbti-container pending">결과 불러오는중 ...</div>
+            <div class="mbti-container result">
+                <div class="mbti-result"></div>
+                <div class="mbti-description"></div>
+                <button class="mbti-retry-button">다시하기</button>
+            </div>
+        </div>
+        <div id="share-section">
+            <div class="title">다른사람에게 공유하기</div>
+            <button id="url-share-button">URL 공유하기</button>
+        </div>
+    </section>
+    <script src="./index.js" type="module"></script>
+</body>
+
+</html>
