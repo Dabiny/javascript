@@ -3,8 +3,10 @@ function solution(N, coin, total) {
     let answer = Number.MAX_SAFE_INTEGER;
     function dfs(l, sum) {
         if (sum > total) return;
+        if (answer <= l) return;
         if(sum === total){
-            answer = Math.min(sum, answer);
+            console.log(l, sum);
+            answer = Math.min(l, answer);
             return;
         }
         else {
