@@ -12,3 +12,14 @@ function solution(n) {
     return answer;
 } 
 console.log(solution(5));
+
+
+function solution(N) {
+    function dfs(p) {
+        if (p === 1) return 1;
+        return p * dfs(p - 1);
+    }
+    let answer = dfs(N);
+    return answer;
+}
+console.log(solution(5));
