@@ -51,3 +51,14 @@ function solution(n, r) {
     return ansewr;
 }
 console.log(solution(33, 19));
+
+// 내가 풀었던 코드
+// function solution(n, r) {
+//     function dfs(num) {
+//         if(num === 1) return 1;
+//         return num * dfs(num - 1);
+//     }
+//     let answer = dfs(n) / (dfs(n - r) * dfs(r));
+//     return answer;
+// }
+// console.log(solution(33, 19));

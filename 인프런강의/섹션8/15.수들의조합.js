@@ -49,3 +49,44 @@ console.log(solution([2, 4, 5, 8, 12], 3, 6)); // 2
 //     return answer;
 // }
 // console.log(solution([2, 4, 5, 8, 12], 3, 6)); // 2
+
+
+// function solution(n, k, number, target) {
+//     let answer = 0;
+//     let tmp = Array.from({length: k}, () => 0);
+//     let ch = Array.from({length: n}, () => 0); 
+//     function dfs(l, si) {
+//         if(l === k) {
+//             const sum = tmp.reduce((p, c) => p + c, 0);
+//             if (sum % target === 0) answer++;
+//             console.log(tmp);
+//             return;
+//         } else {
+//             for (let i = si; i < n; i++) {
+//                 tmp[l] = number[i];
+//                 dfs(l + 1, i + 1);   
+//             }
+//         }
+//     }
+//     dfs(0, 0) // level, startIndex
+//     return answer;
+// }
+// console.log(solution(5, 3, [2, 4, 5, 8, 12], 6));
+
+// tmp 없이 쓰는 법 이게 더 빠를것 같다. 배열에 넣어주는것이 아닌 ...
+function solution(n, k, number, target) {
+    let answer = 0;
+    function dfs(l, si, sum) {
+        if (l === k) {
+            if (sum % target === 0) answer++;
+            return;
+        } else {
+            for (let i = si; i < n; i++) {
+                dfs(l + 1, i + 1, sum + number[i]);
+            }
+        }
+    }
+    dfs(0, 0, 0); // level, startIndex, sum
+    return answer;
+}
+console.log(solution(5, 3, [2, 4, 5, 8, 12], 6));
