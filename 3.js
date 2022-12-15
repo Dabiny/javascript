@@ -1,41 +1,50 @@
-function solution(N, M, arr) {
-    let graph = Array.from({length: N + 1}, () => Array.from({length: N + 1}, () => 0));
-    let check = new Array(N).fill(0);
-    let path = [];
+function solution(board) {
     let answer = 0;
-    for (let [a, b] of arr) {
-        graph[a][b] = 1;
-    }
-    
-    function dfs(v) {
-        if(v === N) {
-            answer++;
-            return;
-        }
-        else {
-            for (let i = 1; i <= N; i++) { // 정점번호 i
-                if(graph[v][i] === 1 && check[i] === 0) {
-                    check[i] = 1;
-                    dfs(i);
-                    check[i] = 0;
+    let dx = [-1, -1, 0, 1, 1, 1, 0, -1];
+    let dy = [0, 1, 1, 1, 0, -1, -1, -1];
+
+    let queue = []; // 큐 생성
+
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[i].length; j++) {
+            if (board[i][j] === 1) {
+                // 육지이면
+                board[i][j] = 0; // check
+                queue.push([i, j]);
+                answer++; // counting 
+                
+                while (queue.length) {
+                    let [x, y] = queue.shift();
+
+                    for (let k = 0; k < 8; k++) {
+                        let nx = x + dx[k];
+                        let ny = y + dy[k];
+
+                        if (
+                            nx >= 0 &&
+                            nx < board.length &&
+                            ny >= 0 &&
+                            ny < board.length &&
+                            board[nx][ny] === 1
+                        ) {
+                            board[nx][ny] = 0; // check하고
+                            queue.push([nx, ny]);
+                        }
+                    }
                 }
             }
         }
     }
-
-    dfs(1); // 출발점
-    console.log(answer);
+    return answer;
 }
 console.log(
-    solution(5, 9, [
-        [1, 2],
-        [1, 3],
-        [1, 4],
-        [2, 1],
-        [2, 3],
-        [2, 5],
-        [3, 4],
-        [4, 2],
-        [4, 5],
+    solution([
+        [1, 1, 0, 0, 0, 1, 0],
+        [0, 1, 1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 0],
     ])
 );
