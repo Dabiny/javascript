@@ -63,6 +63,7 @@ function solution(n, arr){
     }
     ch[1] = 1;
     DFS(1); // 1번부터 시작
+    console.table(graph);
     return answer;
 }
 
@@ -77,3 +78,4 @@ console.log(solution(5, [
     [4, 2],
     [4, 5]
 ]));
+

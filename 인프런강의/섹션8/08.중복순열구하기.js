@@ -15,7 +15,7 @@ function solution(N, M) {
     let tmp = Array.from({length: M}, () => 0);
     function DFS(l) {
         if(l === M) {
-            //answer.push(tmp); // 같은주소(얕은복사)여서 이렇게넣으면안됨
+            // answer.push(tmp); // 같은주소(얕은복사)여서 이렇게넣으면안됨
             answer.push(tmp.slice()); // 새롭게 복사해서 값을 넣어주자. 
             return;
         }
@@ -29,4 +29,4 @@ function solution(N, M) {
     DFS(0); // root level부터
     return answer;
 }
-console.log(solution(4, 3)); // 4P3 
+console.log(solution(4, 2)); // 4P3 

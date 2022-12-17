@@ -35,20 +35,11 @@ function solution(n, m, arr) {
     dy[0] = 0; // dy[0시간] = 점수 0점;
 
     for(let i = 0; i < n; i++) {
-        // for (let j = arr[i][1]; j <= m; j++) {
-        //     dy[j] = Math.max(dy[j], dy[j - arr[i][1]] + arr[i][0]);
-        // }
-
-        // 중복적용 x
-        let ps = arr[i][0]; // 문제점수
-        let pt = arr[i][1]; // 문제푸는시간
-        for(let j = m; j >= pt; j--){
-            dy[j] = Math.max(dy[j], dy[j - pt] + ps);
+        for (let j = arr[i][1]; j <= m; j++) {
+            dy[j] = Math.max(dy[j], dy[j - arr[i][1]] + arr[i][0]);
         }
         console.log(dy);
     }
     answer = dy[m];
     return answer;
 }
-// 코인처럼 돌면 중복적용이 된다. 중복적용 안되게 하자. 
-// j를 m부터 arr[i]  뒤에서부터 앞으로돌아야 중복적용이 되지않음. 
