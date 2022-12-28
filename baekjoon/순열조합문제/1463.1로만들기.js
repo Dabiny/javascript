@@ -36,7 +36,7 @@ const DP = new Array(X + 1).fill(0);
 for (let i = 2; i <= X; i++) {
     DP[i] = DP[i - 1] + 1; // 1을 뺀값을 우선적으로 구하기 
     // DP[3] = DP[2] + 1
-
+    console.log('일단 -1한 값 ', DP);
     if(i % 2 === 0) {
         DP[i] = Math.min(DP[i], DP[i / 2] + 1);
         // DP[2] = Math.min(DP[2], DP[1] + 1);
@@ -45,5 +45,7 @@ for (let i = 2; i <= X; i++) {
         DP[i] = Math.min(DP[i], DP[i / 3] + 1);
         // dp[3] = Math.min(dp[3], dp[1] + 1);
     }
-    console.log(DP);
+    console.log('나누기한 값 ', DP);
 }
+
+console.log(DP[X]);
