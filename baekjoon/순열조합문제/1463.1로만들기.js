@@ -3,7 +3,7 @@ const filePath = process.platform === "linux" ? "/dev/stdin" : "baekjoon/순열�
 const input = fs.readFileSync(filePath).toString().split('\n');
 
 let X = +input.shift(); // 정수 X
-let min = Number.MAX_SAFE_INTEGER;
+// let min = Number.MAX_SAFE_INTEGER;
 
 // function dfs(l, sum) {
 //     if (sum < 1) return; // 가지커팅

@@ -5,9 +5,11 @@ const input = fs.readFileSync(filePath).toString().split("\n");
 const N = +input.shift();
 const cal = [3, 2, -1];
 const answer = Number.MAX_SAFE_INTEGER;
+
 function dfs(l, n) {
     if(n / 3 === 1 || n / 2 === 1 || n - 1 === 1) {
         answer = Math.min(answer, l);
+        return;
     } else {
         for (let i = 0; i < 3; i++) {
             switch(cal[i]) {
